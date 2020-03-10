@@ -1,0 +1,36 @@
+h1.ui {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+@media only screen and (max-width:767px) {
+    .main.ui {
+        width: auto !important;
+        margin-left: 1em !important;
+        margin-right: 1em !important
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width:991px) {
+    .main.ui {
+        width: auto !important;
+        margin-left: 1em !important;
+        margin-right: 300px !important
+    }
+}
+
+@media only screen and (min-width:992px) and (max-width:1199px) {
+    .main.ui {
+        width: auto !important;
+        margin-left: 1em !important;
+        margin-right: 300px !important
+    }
+}
+
+@media only screen and (min-width:1200px) {
+    .main.ui {
+        width: auto !important;
+        margin-left: 1em !important;
+        margin-right: 300px !important
+    }
+}
