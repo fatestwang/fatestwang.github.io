@@ -14,10 +14,10 @@ semantic.Ready = function() {
         //create menu
         handler = {
             getPageTitle: function() {
-                return $.trim($('h1').eq(0).contents().filter(function() { return this.nodeType == 3; }).text().toLowerCase());
+                return $.trim($('h1').eq(0).contents().filter(function() { return this.nodeType == 3; }).text());
             },
             getSafeName: function(text) {
-                return text.replace(/\s+/g, '-').replace(/[^-,'A-Za-z0-9]+/g, '').toLowerCase();
+                return text.replace(/\s+/g, '').replace(/[^-,'A-Za-z0-9]+/g, '');
             },
             getText: function($element) {
                 $element = ($element.find('a').not('.label, .anchor').length > 0) ?
@@ -176,7 +176,6 @@ semantic.Ready = function() {
                     .on('click', handler.scrollTo);
             },
             scrollTo: function(event) {
-                console.log(this);
                 var
                     id = $(this).attr('href').replace('#', ''),
                     $element = $('#' + id),
@@ -209,7 +208,6 @@ semantic.Ready = function() {
                         id = window.escape(safeName),
                         $anchor = $('<a />').addClass('anchor').attr('id', id);
                     $section.append($anchor);
-                    console.log($section);
                 });
                 $h3.each(function() {
                     var
