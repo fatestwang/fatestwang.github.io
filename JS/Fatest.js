@@ -3,7 +3,6 @@ window.semantic = {
     handler: {}
 };
 semantic.Ready = function() {
-    ReDirFilePage();
     //var
     var
         handler,
