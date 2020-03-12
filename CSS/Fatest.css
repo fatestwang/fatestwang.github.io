@@ -8,38 +8,50 @@ h1.ui {
     padding-top: 20px;
 }
 
-#main .sticky {
-    padding-top: 40px;
-}
-
-@media only screen and (max-width:767px) {
-    .main.ui {
-        width: auto !important;
-        margin-left: 1em !important;
-        margin-right: 1em !important
-    }
-}
-
-@media only screen and (min-width:768px) and (max-width:991px) {
-    .main.ui {
-        width: auto !important;
-        margin-left: 1em !important;
-        margin-right: 300px !important
+@media only screen and (max-width:991px) {
+    .ui.dividing.right.rail {
+        display: none;
     }
 }
 
 @media only screen and (min-width:992px) and (max-width:1199px) {
-    .main.ui {
+    .ui.container {
+        margin-left: 50px !important;
+    }
+    .ui.main.container {
         width: auto !important;
-        margin-left: 1em !important;
         margin-right: 300px !important
+    }
+    #main .sticky {
+        padding-top: 40px;
+        width: 200px;
     }
 }
 
-@media only screen and (min-width:1200px) {
-    .main.ui {
+@media only screen and (min-width:1200px) and (max-width:1500px) {
+    .ui.container {
+        margin-left: 100px !important;
+    }
+    .ui.main.container {
         width: auto !important;
-        margin-left: 1em !important;
-        margin-right: 300px !important
+        margin-right: 350px !important
+    }
+    #main .sticky {
+        padding-top: 40px;
+        width: 200px;
+    }
+}
+
+@media only screen and (min-width:1500px) {
+    .ui.container {
+        margin-left: 200px !important;
+    }
+    .ui.main.container {
+        width: auto !important;
+        margin-right: 550px !important
+    }
+    #main .sticky {
+        padding-top: 40px;
+        width: 200px;
     }
 }
