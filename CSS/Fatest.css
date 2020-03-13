@@ -33,12 +33,10 @@ h4.ui.header {
     .ui.container {
         margin-left: 50px !important;
     }
-
     .ui.main.container {
         width: auto !important;
         margin-right: 300px !important
     }
-
     #main .sticky {
         padding-top: 40px;
         width: 200px;
@@ -49,12 +47,10 @@ h4.ui.header {
     .ui.container {
         margin-left: 100px !important;
     }
-
     .ui.main.container {
         width: auto !important;
         margin-right: 350px !important
     }
-
     #main .sticky {
         padding-top: 40px;
         width: 200px;
@@ -65,20 +61,15 @@ h4.ui.header {
     .ui.container {
         margin-left: 200px !important;
     }
-
     .ui.main.container {
         width: auto !important;
         margin-right: 550px !important
     }
-
     #main .sticky {
         padding-top: 40px;
         width: 200px;
     }
 }
-
-
-
 
 .pageIcon {
     height: 80px;
@@ -97,12 +88,36 @@ h4.ui.header {
     text-align: center;
     margin: 20px 0;
 }
-.return a{
+
+.return a {
     line-height: 80px;
     font-size: 3em;
 }
 
-.footer{
+.footer {
     height: 200px;
     border-top: 1px solid rgba(34, 36, 38, .15) !important;
+}
+
+.imageView {
+    text-align: center;
+}
+
+.imageView .title {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.imageView .item {
+    display: inline-block;
+    width: 25%;
+    vertical-align: middle;
+    margin: 10px 10px;
+    transition: width 0.5s;
+}
+
+.imageView img {
+    width: 100%;
 }

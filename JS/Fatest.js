@@ -225,5 +225,9 @@ semantic.Ready = function() {
     handler.createAnchors();
     handler.tryCreateMenu();
     semantic.handler = handler;
+    $('.imageView .item').on("click", function() {
+        $('.imageView .item').css("width", "25%");
+        $(this).css("width", "100%");
+    })
 }
 $(document).ready(semantic.Ready);
