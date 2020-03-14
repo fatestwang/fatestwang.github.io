@@ -33,10 +33,12 @@ h4.ui.header {
     .ui.container {
         margin-left: 50px !important;
     }
+
     .ui.main.container {
         width: auto !important;
         margin-right: 300px !important
     }
+
     #main .sticky {
         padding-top: 40px;
         width: 200px;
@@ -47,10 +49,12 @@ h4.ui.header {
     .ui.container {
         margin-left: 100px !important;
     }
+
     .ui.main.container {
         width: auto !important;
         margin-right: 350px !important
     }
+
     #main .sticky {
         padding-top: 40px;
         width: 200px;
@@ -61,10 +65,12 @@ h4.ui.header {
     .ui.container {
         margin-left: 200px !important;
     }
+
     .ui.main.container {
         width: auto !important;
         margin-right: 550px !important
     }
+
     #main .sticky {
         padding-top: 40px;
         width: 200px;
@@ -103,21 +109,34 @@ h4.ui.header {
     text-align: center;
 }
 
-.imageView .title {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    text-align: center;
-}
-
 .imageView .item {
     display: inline-block;
-    width: 25%;
+    width: 40%;
     vertical-align: middle;
     margin: 10px 10px;
-    transition: width 0.5s;
 }
 
 .imageView img {
     width: 100%;
+}
+
+.fullImage {
+    background-color: black;
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    vertical-align: middle;
+}
+
+.fullImage img {
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
 }

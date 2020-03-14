@@ -2,7 +2,7 @@
 window.semantic = {
     handler: {}
 };
-semantic.Ready = function() {
+semantic.Ready = function () {
     //var
     var
         handler,
@@ -13,18 +13,29 @@ semantic.Ready = function() {
         $followMenu = $container.find('.following.menu'),
         //create menu
         handler = {
-            getPageTitle: function() {
-                return $.trim($('h1').eq(0).contents().filter(function() { return this.nodeType == 3; }).text());
+            showFullImage: function () {
+                $('.fullImage').find('img').attr('src', $(this).find('img').attr("src"));
+                $('.fullImage').css('display','block');
+                $('.fullImage img').css('max-width', '100%').css('max-height', '100%');
             },
-            getSafeName: function(text) {
+            hideFullImage: function () {
+                $('.fullImage').css('display','none');
+                $('.fullImage img').css('max-width', '0%').css('max-height', '0%');
+            },
+            getPageTitle: function () {
+                return $.trim($('h1').eq(0).contents().filter(function () {
+                    return this.nodeType == 3;
+                }).text());
+            },
+            getSafeName: function (text) {
                 return text.replace(/\s+/g, '').replace(/[^-,'A-Za-z0-9]+/g, '');
             },
-            getText: function($element) {
+            getText: function ($element) {
                 $element = ($element.find('a').not('.label, .anchor').length > 0) ?
                     $element.find('a') :
                     $element;
                 var
-                    $text = $element.contents().filter(function() {
+                    $text = $element.contents().filter(function () {
                         return this.nodeType == 3;
                     });
                 return ($text.length > 0) ?
@@ -32,14 +43,14 @@ semantic.Ready = function() {
                     $element.find('a').text().trim();
             },
             activate: {
-                accordion: function() {
+                accordion: function () {
                     var
                         $section = $(this),
                         index = $h2.index($section),
                         $followSection = $followMenu.children('.item'),
                         $activeSection = $followSection.eq(index);
                 },
-                h2previous: function() {
+                h2previous: function () {
                     var
                         $menuItems = $followMenu.children('.item'),
                         $section = $menuItems.filter('.active'),
@@ -53,7 +64,7 @@ semantic.Ready = function() {
                             .accordion('open', index - 1);
                     }
                 },
-                h2next: function() {
+                h2next: function () {
                     var
                         $section = $(this),
                         index = $h2.index($section),
@@ -69,7 +80,7 @@ semantic.Ready = function() {
                             .accordion('open', index);
                     }
                 },
-                h3: function() {
+                h3: function () {
                     var
                         $section = $(this).eq(0),
                         index = $h3.index($section),
@@ -86,7 +97,7 @@ semantic.Ready = function() {
                     }
                 }
             },
-            createWaypoints: function() {
+            createWaypoints: function () {
                 $h2.visibility({
                     observeChanges: false,
                     once: false,
@@ -103,14 +114,14 @@ semantic.Ready = function() {
                     onBottomPassedReverse: handler.activate.h3
                 });
             },
-            createMenu: function() {
+            createMenu: function () {
                 var
                     html = '',
                     pageTitle = handler.getPageTitle(),
                     title = pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1),
                     $sticky,
                     $rail;
-                $h2.each(function(index) {
+                $h2.each(function (index) {
                     var
                         $currentHeader = $(this),
                         $nextElements = $currentHeader.nextUntil('h2'),
@@ -131,7 +142,7 @@ semantic.Ready = function() {
                     if ($h3Inh2.length > 0) {
                         html += '<div class="' + activeClass + 'content menu">';
                         $h3Inh2
-                            .each(function() {
+                            .each(function () {
                                 var
                                     $title = $(this),
                                     text = handler.getText($title),
@@ -168,14 +179,14 @@ semantic.Ready = function() {
                     .accordion({
                         exclusive: false,
                         animateChildren: false,
-                        onChange: function() {
+                        onChange: function () {
                             $('.ui.sticky').sticky('refresh');
                         }
                     })
                     .find('.menu a[href], .title[href]')
                     .on('click', handler.scrollTo);
             },
-            scrollTo: function(event) {
+            scrollTo: function (event) {
                 var
                     id = $(this).attr('href').replace('#', ''),
                     $element = $('#' + id),
@@ -191,7 +202,7 @@ semantic.Ready = function() {
                 event.preventDefault();
                 return false;
             },
-            tryCreateMenu: function(event) {
+            tryCreateMenu: function (event) {
                 if ($(window).width() > 640) {
                     if ($container.length > 0 && $container.find('.following.menu').length === 0) {
                         handler.createMenu();
@@ -199,8 +210,8 @@ semantic.Ready = function() {
                     }
                 }
             },
-            createAnchors: function() {
-                $h2.each(function() {
+            createAnchors: function () {
+                $h2.each(function () {
                     var
                         $section = $(this),
                         text = handler.getText($section),
@@ -209,7 +220,7 @@ semantic.Ready = function() {
                         $anchor = $('<a />').addClass('anchor').attr('id', id);
                     $section.append($anchor);
                 });
-                $h3.each(function() {
+                $h3.each(function () {
                     var
                         $title = $(this),
                         text = handler.getText($title),
@@ -225,9 +236,7 @@ semantic.Ready = function() {
     handler.createAnchors();
     handler.tryCreateMenu();
     semantic.handler = handler;
-    $('.imageView .item').on("click", function() {
-        $('.imageView .item').css("width", "25%");
-        $(this).css("width", "100%");
-    })
+    $('.imageView .item').on("click", handler.showFullImage);
+    $('.fullImage').on('click', handler.hideFullImage);
 }
 $(document).ready(semantic.Ready);
