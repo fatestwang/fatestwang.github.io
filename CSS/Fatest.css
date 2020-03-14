@@ -101,8 +101,17 @@ h4.ui.header {
 }
 
 .footer {
-    height: 200px;
     border-top: 1px solid rgba(34, 36, 38, .15) !important;
+    text-align: center;
+}
+.footer p{
+    margin: 5px 0;
+}
+.footer .first{
+    margin-top: 20px;
+}
+.footer .last{
+    margin-bottom: 20px;
 }
 
 .imageView {

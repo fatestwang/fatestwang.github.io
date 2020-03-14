@@ -1,8 +1,8 @@
 // namespace
-window.semantic = {
+window.fatest = {
     handler: {}
 };
-semantic.Ready = function () {
+fatest.Ready = function () {
     //var
     var
         handler,
@@ -13,15 +13,6 @@ semantic.Ready = function () {
         $followMenu = $container.find('.following.menu'),
         //create menu
         handler = {
-            showFullImage: function () {
-                $('.fullImage').find('img').attr('src', $(this).find('img').attr("src"));
-                $('.fullImage').css('display','block');
-                $('.fullImage img').css('max-width', '100%').css('max-height', '100%');
-            },
-            hideFullImage: function () {
-                $('.fullImage').css('display','none');
-                $('.fullImage img').css('max-width', '0%').css('max-height', '0%');
-            },
             getPageTitle: function () {
                 return $.trim($('h1').eq(0).contents().filter(function () {
                     return this.nodeType == 3;
@@ -235,8 +226,6 @@ semantic.Ready = function () {
         }
     handler.createAnchors();
     handler.tryCreateMenu();
-    semantic.handler = handler;
-    $('.imageView .item').on("click", handler.showFullImage);
-    $('.fullImage').on('click', handler.hideFullImage);
+    fatest.handler = handler;
 }
-$(document).ready(semantic.Ready);
+$(document).ready(fatest.Ready);
