@@ -18,8 +18,13 @@ fatest.Ready = function () {
                     return this.nodeType == 3;
                 }).text());
             },
-            getSafeName: function (text) {
-                return text.replace(/\s+/g, '').replace(/[^-,'A-Za-z0-9]+/g, '');
+            getSafeHash: function (text) {
+                var safeName = text.replace(/\s+/g, '').replace(/[^-,'A-Za-z0-9]+/g, '');
+                if (safeName.length < 3) {
+                    var tStr = encodeURI(text).replace(/[^-,'A-Za-z0-9]+/g, '');
+                    return tStr.substr(0, 4) + tStr.substr(tStr.length / 3, 4) + tStr.substr(tStr.length * 2 / 3, 4);
+                }
+                return safeName;
             },
             getText: function ($element) {
                 $element = ($element.find('a').not('.label, .anchor').length > 0) ?
@@ -53,6 +58,8 @@ fatest.Ready = function () {
                             .addClass('active');
                         $followMenu
                             .accordion('open', index - 1);
+                        $followMenu
+                            .accordion('close', index);
                     }
                 },
                 h2next: function () {
@@ -69,6 +76,8 @@ fatest.Ready = function () {
                             .addClass('active');
                         $followMenu
                             .accordion('open', index);
+                        $followMenu
+                            .accordion('close', index - 1);
                     }
                 },
                 h3: function () {
@@ -121,7 +130,7 @@ fatest.Ready = function () {
                         'active ' :
                         '',
                         text = handler.getText($currentHeader),
-                        safeName = handler.getSafeName(text),
+                        safeName = handler.getSafeHash(text),
                         id = window.escape(safeName),
                         $anchor = $('<a />').addClass('anchor').attr('id', id);
                     html += '<div class="item">';
@@ -137,7 +146,7 @@ fatest.Ready = function () {
                                 var
                                     $title = $(this),
                                     text = handler.getText($title),
-                                    safeName = handler.getSafeName(text),
+                                    safeName = handler.getSafeHash(text),
                                     id = window.escape(safeName),
                                     $anchor = $('<a />').addClass('anchor').attr('id', id);
                                 if ($title.length > 0) {
@@ -206,7 +215,7 @@ fatest.Ready = function () {
                     var
                         $section = $(this),
                         text = handler.getText($section),
-                        safeName = handler.getSafeName(text),
+                        safeName = handler.getSafeHash(text),
                         id = window.escape(safeName),
                         $anchor = $('<a />').addClass('anchor').attr('id', id);
                     $section.append($anchor);
@@ -215,7 +224,7 @@ fatest.Ready = function () {
                     var
                         $title = $(this),
                         text = handler.getText($title),
-                        safeName = handler.getSafeName(text),
+                        safeName = handler.getSafeHash(text),
                         id = window.escape(safeName),
                         $anchor = $('<a />').addClass('anchor').attr('id', id);
                     if ($title.length > 0) {
