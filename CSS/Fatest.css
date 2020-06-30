@@ -4,8 +4,13 @@ h1.ui {
 }
 
 h2.ui.header {
+    padding-top: 50px;
     border-bottom: 1px solid rgba(34, 36, 38, .15);
     padding-bottom: 10px;
+}
+
+h2.ui.header.firstChild{
+    padding-top: 0px;
 }
 
 h3.ui.header {
