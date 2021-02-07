@@ -135,6 +135,10 @@ h3 p.summary{
     text-align: center;
 }
 
+.content_title {
+    text-align: center;
+}
+
 .footer p {
     margin: 5px 0;
 }
