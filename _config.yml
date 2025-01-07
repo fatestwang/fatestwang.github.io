@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Fatest-Blog
+title: Fatest的电子坟墓
 subtitle: ''
 description: '一个奇怪的人，写了一些奇怪的事。'
 keywords:
@@ -104,3 +104,6 @@ theme: next
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: 'git'
+
+symbols_count_time:
+  symbols: true
