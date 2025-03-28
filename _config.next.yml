@@ -105,6 +105,10 @@ menu:
     关于我二级: 
       default: /tes/
       二级其他: /other.html
+  游戏Demo: 
+    default: /mypage/AutoPawnDemo/index.html || fa fa-th
+    AutoPawn: 
+      default: /mypage/AutoPawnDemo/index.html
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
